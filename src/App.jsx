@@ -360,7 +360,7 @@ function App() {
       document.removeEventListener('keydown', keyListener)
       clearInterval(timer)
     }
-  }, [shape, cols, rows, buffer, gamePaused])
+  }, [shape, cols, rows, buffer, gamePaused, gameOver])
 
   function cell(row, col) {
     const isScene = getSceneValue(row, col)
