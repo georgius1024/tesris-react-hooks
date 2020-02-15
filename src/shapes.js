@@ -138,3 +138,28 @@ export function E(orientation) {
     default:
   }
 }
+
+function randomFunc() {
+  const funcs = Object.values([L1, L2, S1, S2, box, I, E])
+  return funcs[Math.floor(Math.random() * funcs.length)]
+}
+
+export default function shapeFactory(rows, cols) {
+  const func = randomFunc()
+  const data = func(0)
+  const height = data.length
+  const width = data[0].length
+  return {
+    col: Math.floor((cols - width) / 2),
+    row: rows - height,
+    style:
+      Math.floor(Math.random() * 4) * 16 + Math.floor(Math.random() * 7) + 1,
+    orientation: 0,
+    func,
+    mask() {
+      return this.func(
+        arguments.length === 0 ? this.orientation : arguments[0]
+      ).reverse()
+    }
+  }
+}
