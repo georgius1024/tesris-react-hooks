@@ -1,26 +1,24 @@
 import React from 'react'
 import cn from 'classnames'
+import { flattenedBuffer } from '../placements'
+
 function Board({ buffer, rows, cols, shape }) {
-  const mask = (shape && shape.mask()) || []
-  const getSceneValue = (row, col) => buffer[row * cols + col]
-  const getShapeValue = (row, col) => {
-    if (!shape) {
-      return 0
-    }
-    if (
-      row < shape.row ||
-      col < shape.col ||
-      row >= shape.row + mask.length ||
-      col > shape.col + mask[0].length
-    ) {
-      return 0
-    }
-    return mask[row - shape.row][col - shape.col] ? shape.style : -1
+  let flattened
+  if (shape) {
+    flattened = flattenedBuffer(
+      shape.mask(),
+      shape.row,
+      shape.col,
+      shape.style,
+      buffer,
+      rows,
+      cols
+    )
+  } else {
+    flattened = buffer
   }
   function cell(row, col) {
-    const shape = getShapeValue(row, col)
-    const scene = getSceneValue(row, col)
-    const cellValue = (shape || scene) - 1
+    const cellValue = flattened[row * cols + col] - 1
     let className = cn('cell', 'default')
     if (cellValue >= 0) {
       const color = cellValue % 16 || 0

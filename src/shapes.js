@@ -86,7 +86,7 @@ export function S2(orientation) {
     case 3:
       return [
         [0, 1, 1],
-        [1, 1]
+        [1, 1, 0]
       ]
     default:
   }

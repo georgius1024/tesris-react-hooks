@@ -1,173 +1,90 @@
-import React, { useState, useEffect, memo } from 'react'
-import shapeFactory from './shapes'
+import React, { useEffect, useReducer, memo } from 'react'
+import reducer, { reset, actions, action } from './reducer'
 import Board from './components/Board'
 import Shape from './components/Shape'
-import {
-  validPlacement,
-  moveShape,
-  rotateShape,
-  flattenShape
-} from './placements'
-
-const rows = 16
-const cols = 8
 
 function App() {
-  const [gamePaused, setGamePaused] = useState(false)
-  const [gameOver, setGameOver] = useState(false)
-  const [currentShape, setCurrentShape] = useState(shapeFactory(rows, cols))
-  const [nextShape, setNextShape] = useState(shapeFactory(rows, cols))
-  const [buffer, setBuffer] = useState(new Uint8Array(rows * cols))
-
+  const [state, dispatch] = useReducer(reducer, {}, reset)
   function restart() {
-    setCurrentShape(shape => {
-      setGameOver(false)
-      setBuffer(buffer => {
-        return new Uint8Array(rows * cols)
-      })
-      setNextShape(shapeFactory(rows, cols))
-      return shapeFactory(rows, cols)
-    })
+    dispatch(action(actions.RESTART))
   }
-
+  function pause() {
+    dispatch(action(actions.PAUSE))
+  }
   function resume() {
-    setGamePaused(false)
+    dispatch(action(actions.RESUME))
+  }
+  function down() {
+    dispatch(action(actions.DOWN))
+  }
+  function left() {
+    dispatch(action(actions.LEFT))
+  }
+  function right() {
+    dispatch(action(actions.RIGHT))
+  }
+  function rotate() {
+    dispatch(action(actions.ROTATE))
+  }
+  function drop() {
+    dispatch(action(actions.DROP))
   }
 
   useEffect(() => {
-    function restart() {
-      setCurrentShape(shape => {
-        setGameOver(false)
-        setBuffer(buffer => {
-          return new Uint8Array(rows * cols)
-        })
-        setNextShape(shapeFactory(rows, cols))
-        return shapeFactory(rows, cols)
-      })
-    }
-
-    function pause() {
-      setGamePaused(true)
-    }
-
-    function resume() {
-      setGamePaused(false)
-    }
-
-    function move(dR, dC) {
-      setCurrentShape(shape =>
-        moveShape(shape, dR, dC, buffer, rows, cols, newShape => fall(newShape))
-      )
-    }
-    function rotate(dir) {
-      setCurrentShape(shape =>
-        rotateShape(shape, dir, buffer, rows, cols, newShape => fall(newShape))
-      )
-    }
-
-    function drop() {
-      if (!currentShape) {
-        return
-      }
-      while (
-        validPlacement(
-          currentShape.mask(),
-          currentShape.row - 1,
-          currentShape.col,
-          buffer,
-          rows,
-          cols
-        )
-      ) {
-        currentShape.row = currentShape.row - 1
-      }
-      fall(currentShape)
-    }
-
-    function fall(shape) {
-      setBuffer(buffer => {
-        const newBuffer = flattenShape(shape, buffer, rows, cols)
-        const candidate = nextShape //shapeFactory(randomFunc(), rows, cols)
-        console.error(JSON.stringify(candidate.mask()))
-        if (
-          validPlacement(
-            candidate.mask(),
-            candidate.row,
-            candidate.col,
-            newBuffer,
-            rows,
-            cols
-          )
-        ) {
-          setCurrentShape(candidate)
-          setNextShape(shapeFactory(rows, cols))
-        } else {
-          setCurrentShape()
-          setNextShape()
-          setGameOver(true)
-        }
-
-        return newBuffer
-      })
-    }
-
     function keyListener(e) {
-      if (gameOver) {
-        restart()
+      if (state.gameOver) {
+        if (!e.repeat) {
+          restart()
+        }
         return
       }
-      if (gamePaused) {
-        resume()
+      if (state.gamePaused) {
+        if (!e.repeat) {
+          resume()
+        }
+        return
       } else {
+        console.log(e)
         switch (e.key) {
-          case 'ArrowRight':
-            move(0, 1)
-            break
-          case 'ArrowLeft':
-            move(0, -1)
-            break
-          case 'ArrowUp':
-            rotate(1)
+          case 'Pause':
+            pause()
             break
           case 'ArrowDown':
-            drop()
+            down()
+            break
+          case 'ArrowLeft':
+            left()
+            break
+          case 'ArrowRight':
+            right()
+            break
+          case 'ArrowUp':
+            rotate()
             break
           case ' ':
-            pause()
+            drop()
             break
           default:
         }
       }
     }
-    document.addEventListener('keydown', keyListener)
+
     const timer = setInterval(() => {
-      if (!currentShape || gamePaused || gameOver) {
+      if (state.gameOver || state.gamePaused) {
         return
       }
-      if (
-        validPlacement(
-          currentShape.mask(),
-          currentShape.row - 1,
-          currentShape.col,
-          buffer,
-          rows,
-          cols
-        )
-      ) {
-        setCurrentShape({ ...currentShape, row: currentShape.row - 1 })
-      } else {
-        fall(currentShape)
-      }
-    }, 1200)
+      down()
+    }, 1000)
+
+    document.addEventListener('keydown', keyListener)
     return () => {
       document.removeEventListener('keydown', keyListener)
       clearInterval(timer)
     }
-  }, [currentShape, nextShape, buffer, gamePaused, gameOver])
-
+  }, [state])
   return (
     <div className="game">
-      {gameOver && (
+      {state.gameOver && (
         <div className="gameover" onClick={restart}>
           <div className="message">
             Game is over
@@ -175,7 +92,7 @@ function App() {
           </div>
         </div>
       )}
-      {gamePaused && (
+      {state.gamePaused && (
         <div className="gamepaused" onClick={resume}>
           <div className="message">
             Game is paused.
@@ -183,10 +100,15 @@ function App() {
           </div>
         </div>
       )}
-      <Shape shape={nextShape} pos="right" />
-      <Board buffer={buffer} cols={cols} rows={rows} shape={currentShape} />
+      <Shape shape={state.nextShape} pos="right" />
+      <Board
+        buffer={state.buffer}
+        rows={state.rows}
+        cols={state.cols}
+        shape={state.currentShape}
+      />
+      [{state.score}]
     </div>
   )
 }
-
 export default memo(App)
