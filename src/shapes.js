@@ -92,7 +92,7 @@ export function S(orientation) {
   }
 }
 
-export function O(orientation) {
+export function O() {
   return [
     [1, 1],
     [1, 1]

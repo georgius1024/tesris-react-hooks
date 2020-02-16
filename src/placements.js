@@ -1,10 +1,5 @@
 export function validPlacement(mask, row, col, buffer, rows, cols) {
-  if (
-    row < 0 ||
-    col < 0 ||
-    // row + mask.length > rows ||
-    col + mask[0].length > cols
-  ) {
+  if (row < 0 || col < 0 || col + mask[0].length > cols) {
     return false
   }
   for (let r = 0; r < mask.length; r++) {
