@@ -1,4 +1,4 @@
-export function L1(orientation) {
+export function J(orientation) {
   switch (orientation) {
     case 0:
       return [
@@ -26,7 +26,7 @@ export function L1(orientation) {
   }
 }
 
-export function L2(orientation) {
+export function L(orientation) {
   switch (orientation) {
     case 0:
       return [
@@ -54,7 +54,7 @@ export function L2(orientation) {
   }
 }
 
-export function S1(orientation) {
+export function Z(orientation) {
   switch (orientation) {
     case 0:
     case 2:
@@ -73,7 +73,7 @@ export function S1(orientation) {
   }
 }
 
-export function S2(orientation) {
+export function S(orientation) {
   switch (orientation) {
     case 0:
     case 2:
@@ -92,7 +92,7 @@ export function S2(orientation) {
   }
 }
 
-export function box(orientation) {
+export function O(orientation) {
   return [
     [1, 1],
     [1, 1]
@@ -111,7 +111,7 @@ export function I(orientation) {
   }
 }
 
-export function E(orientation) {
+export function T(orientation) {
   switch (orientation) {
     case 0:
       return [
@@ -140,7 +140,7 @@ export function E(orientation) {
 }
 
 function randomFunc() {
-  const funcs = Object.values([L1, L2, S1, S2, box, I, E])
+  const funcs = Object.values([J, L, Z, S, O, I, T])
   return funcs[Math.floor(Math.random() * funcs.length)]
 }
 
