@@ -2,34 +2,6 @@ export function J(orientation) {
   switch (orientation) {
     case 0:
       return [
-        [1, 1],
-        [1, 0],
-        [1, 0]
-      ]
-    case 1:
-      return [
-        [1, 1, 1],
-        [0, 0, 1]
-      ]
-    case 2:
-      return [
-        [0, 1],
-        [0, 1],
-        [1, 1]
-      ]
-    case 3:
-      return [
-        [1, 0, 0],
-        [1, 1, 1]
-      ]
-    default:
-  }
-}
-
-export function L(orientation) {
-  switch (orientation) {
-    case 0:
-      return [
         [1, 0],
         [1, 0],
         [1, 1]
@@ -54,26 +26,35 @@ export function L(orientation) {
   }
 }
 
-export function Z(orientation) {
+export function L(orientation) {
   switch (orientation) {
     case 0:
-    case 2:
       return [
-        [0, 1],
         [1, 1],
+        [1, 0],
         [1, 0]
       ]
     case 1:
+      return [
+        [1, 1, 1],
+        [0, 0, 1]
+      ]
+    case 2:
+      return [
+        [0, 1],
+        [0, 1],
+        [1, 1]
+      ]
     case 3:
       return [
-        [1, 1, 0],
-        [0, 1, 1]
+        [1, 0, 0],
+        [1, 1, 1]
       ]
     default:
   }
 }
 
-export function S(orientation) {
+export function Z(orientation) {
   switch (orientation) {
     case 0:
     case 2:
@@ -87,6 +68,25 @@ export function S(orientation) {
       return [
         [0, 1, 1],
         [1, 1, 0]
+      ]
+    default:
+  }
+}
+
+export function S(orientation) {
+  switch (orientation) {
+    case 0:
+    case 2:
+      return [
+        [0, 1],
+        [1, 1],
+        [1, 0]
+      ]
+    case 1:
+    case 3:
+      return [
+        [1, 1, 0],
+        [0, 1, 1]
       ]
     default:
   }
@@ -157,9 +157,7 @@ export default function shapeFactory(rows, cols) {
     orientation: 0,
     func,
     mask() {
-      return this.func(
-        arguments.length === 0 ? this.orientation : arguments[0]
-      ).reverse()
+      return this.func(arguments.length === 0 ? this.orientation : arguments[0])
     }
   }
 }

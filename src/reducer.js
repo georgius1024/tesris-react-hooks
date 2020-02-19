@@ -1,11 +1,12 @@
 import shapeFactory from './shapes'
-
 import {
   validPlacement,
   flattenedBuffer,
   countFilledRows,
   cleanFilledRows
 } from './placements'
+
+const storageKey = 'best-score'
 
 const cols = 10
 const rows = 20
@@ -61,7 +62,9 @@ export function reset() {
     overflow: false,
     gameOver: false,
     gamePaused: false,
-    score: 0
+    score: 0,
+    bestScore: Number(localStorage.getItem(storageKey) || 0),
+    level: 0
   }
   return placeCurrentShape(state)
 }
@@ -111,6 +114,11 @@ function down(current) {
           state.score = state.score + 800
           break
       }
+      if (state.score > state.bestScore) {
+        localStorage.setItem(storageKey, state.score)
+        state.bestScore = state.score
+      }
+      state.level = Math.min(Math.floor(state.score / 500), 9)
       state.buffer = cleanFilledRows(state.buffer, rows, cols)
     }
     state.currentShape = state.nextShape

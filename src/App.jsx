@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, memo } from 'react'
 import reducer, { reset, actions, action } from './reducer'
 import Board from './components/Board'
-import Shape from './components/Shape'
+import SidePanel from './components/SidePanel'
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {}, reset)
@@ -74,7 +74,7 @@ function App() {
         return
       }
       down()
-    }, 1000)
+    }, 1000 - state.level * 100)
 
     document.addEventListener('keydown', keyListener)
     return () => {
@@ -82,13 +82,16 @@ function App() {
       clearInterval(timer)
     }
   }, [state])
+
   return (
     <div className="game">
       {state.gameOver && (
         <div className="gameover" onClick={restart}>
           <div className="message">
-            Game is over
-            <div className="cta">Click to resume.</div>
+            <p>Game is over</p>
+            <p className="score">Your score is {state.score}</p>
+            <p className="score">Best score is {state.bestScore}</p>
+            <div className="cta">Click to restart.</div>
           </div>
         </div>
       )}
@@ -100,14 +103,19 @@ function App() {
           </div>
         </div>
       )}
-      <Shape shape={state.nextShape} pos="right" />
-      <Board
-        buffer={state.buffer}
-        rows={state.rows}
-        cols={state.cols}
-        shape={state.currentShape}
-      />
-      [{state.score}]
+      <div className="central-zone">
+        <Board
+          buffer={state.buffer}
+          rows={state.rows}
+          cols={state.cols}
+          shape={state.currentShape}
+        />
+        <SidePanel
+          shape={state.nextShape}
+          score={state.score}
+          level={state.level}
+        />
+      </div>
     </div>
   )
 }
