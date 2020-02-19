@@ -2,14 +2,745 @@
 
 exports[`App component Mounts without error 1`] = `
 <div
-  className="columns full-height is-mobile is-vcentered"
+  className="game"
 >
   <div
-    className="column  is-half-desktop is-offset-one-quarter-desktop  is-three-fifths-tablet is-offset-one-fifth-tablet  has-background-dark has-text-grey-lighter is-size-3 has-text-centered"
+    className="central-zone"
   >
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae autem reprehenderit asperiores provident doloribus, sint numquam eaque obcaecati harum, minus labore fugit officia in assumenda debitis id quidem. Nulla, fugit!
-    </p>
+    <div
+      className="board"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell color-2 fill-2"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell color-2 fill-2"
+        />
+        <div
+          className="cell color-2 fill-2"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell color-2 fill-2"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+        <div
+          className="cell default"
+        />
+      </div>
+    </div>
+    <aside
+      className="side-panel"
+    >
+      <div
+        className="score"
+      >
+        Current score is: 
+        0
+      </div>
+      <div
+        className="level"
+      >
+        Current Level is: 
+        1
+      </div>
+      <div
+        className="shape"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="cell color-5 fill-3"
+          />
+          <div
+            className="cell default"
+          />
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="cell color-5 fill-3"
+          />
+          <div
+            className="cell color-5 fill-3"
+          />
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="cell color-5 fill-3"
+          />
+          <div
+            className="cell default"
+          />
+        </div>
+      </div>
+    </aside>
   </div>
 </div>
 `;
