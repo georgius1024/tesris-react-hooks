@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component Mounts without error 1`] = `
+<div
+  className="columns full-height is-mobile is-vcentered"
+>
+  <div
+    className="column  is-half-desktop is-offset-one-quarter-desktop  is-three-fifths-tablet is-offset-one-fifth-tablet  has-background-dark has-text-grey-lighter is-size-3 has-text-centered"
+  >
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae autem reprehenderit asperiores provident doloribus, sint numquam eaque obcaecati harum, minus labore fugit officia in assumenda debitis id quidem. Nulla, fugit!
+    </p>
+  </div>
+</div>
+`;
