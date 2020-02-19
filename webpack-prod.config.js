@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = () => ({
   output: {
     path: __dirname + '/dist',
-    publicPath: '/',
+    publicPath: '/tetris',
     filename: '[name].[hash].js'
   },
   plugins: [
